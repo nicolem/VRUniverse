@@ -240,6 +240,7 @@ public class GazeInputModule : BaseInputModule {
     pointerData.useDragThreshold = true;
     pointerData.clickCount = 1;
     pointerData.clickTime = Time.unscaledTime;
+
   }
 
   private Vector2 NormalizedCartesianToSpherical(Vector3 cartCoords) {

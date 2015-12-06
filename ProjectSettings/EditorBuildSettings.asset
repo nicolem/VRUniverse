@@ -10,4 +10,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Planet Earth Pack/Scenes/Earth Scene.unity
   - enabled: 1
+    path: Assets/earthday.unity
+  - enabled: 1
     path: Assets/earthnight.unity

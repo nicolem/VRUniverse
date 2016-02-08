@@ -8,7 +8,7 @@
                  Application.LoadLevel("earthnight");
              }
          }
-     }else if(platform == RuntimePlatform.OSXEditor){
+     }else if(platform == RuntimePlatform.OSXEditor || platform == RuntimePlatform.WindowsEditor){
 
          if(Input.GetMouseButtonDown(0)) {
                	Debug.Log("code is running");

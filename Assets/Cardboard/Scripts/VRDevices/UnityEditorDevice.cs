@@ -41,6 +41,7 @@ public class UnityEditorDevice : BaseVRDevice {
 
   // Since we can check all these settings by asking Cardboard.SDK, no need
   // to keep a separate copy here.
+  public override void SetUILayerEnabled(bool enabled) {}
   public override void SetVRModeEnabled(bool enabled) {}
   public override void SetDistortionCorrectionEnabled(bool enabled) {}
   public override void SetStereoScreen(RenderTexture stereoScreen) {}

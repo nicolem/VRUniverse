@@ -15,6 +15,7 @@
 using System;
 using UnityEngine;
 
+/// @cond
 /// Measurements of a particular phone in a particular Cardboard device.
 [System.Serializable]
 public class CardboardProfile {
@@ -491,3 +492,4 @@ public class CardboardProfile {
     };
   }
 }
+/// @endcond

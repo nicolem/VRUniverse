@@ -20,21 +20,21 @@ extern void VRBackButtonPressed();
 
 extern void cardboardPause(bool paused);
 extern void createUiLayer(id app, UIView* view);
-extern UIViewController* createSettingsDialog(id app);
-extern UIViewController* createOnboardingDialog(id app);
+extern UIViewController *createSettingsDialog(id app);
+extern UIViewController *createOnboardingDialog(id app);
 
 bool isOpenGLAPI() {
 #if UNITY_VERSION < 463
   return true;
 #else
-  CardboardAppController* app = (CardboardAppController *)GetAppController();
+  CardboardAppController *app = (CardboardAppController *)GetAppController();
   UnityRenderingAPI api = [app renderingAPI];
   return api == apiOpenGLES2 || api == apiOpenGLES3;
 #endif
 }
 
 void launchSettingsDialog() {
-  CardboardAppController* app = (CardboardAppController *)GetAppController();
+  CardboardAppController *app = (CardboardAppController *)GetAppController();
   [app launchSettingsDialog];
 }
 
@@ -47,18 +47,23 @@ void launchOnboardingDialog() {
     return;
   }
   isOnboarding = true;
-  CardboardAppController* app = (CardboardAppController *)GetAppController();
+  CardboardAppController *app = (CardboardAppController *)GetAppController();
   [app startSettingsDialog:createOnboardingDialog(app)];
 }
 
 void endSettingsDialog() {
-  CardboardAppController* app = (CardboardAppController *)GetAppController();
+  CardboardAppController *app = (CardboardAppController *)GetAppController();
   [app stopSettingsDialog];
   isOnboarding = false;
 }
 
 float getScreenDPI() {
   return ([[UIScreen mainScreen] scale] > 2.0f) ? 401.0f : 326.0f;
+}
+
+void finishActivityAndReturn() {
+  CardboardAppController *app = (CardboardAppController *)GetAppController();
+  [app finishActivityAndReturn];
 }
 
 }  // extern "C"
@@ -96,6 +101,9 @@ float getScreenDPI() {
   self.paused = paused;
 #endif
   cardboardPause(paused);
+}
+
+- (void)finishActivityAndReturn {
 }
 
 @end

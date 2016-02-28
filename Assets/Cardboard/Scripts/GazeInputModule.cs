@@ -1,6 +1,6 @@
 ﻿// The MIT License (MIT)
 //
-// Copyright (c) 2014, Unity Technologies & Google, Inc.
+// Copyright (c) 2015, Unity Technologies & Google, Inc.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,18 +25,23 @@ using UnityEngine.EventSystems;
 
 /// @ingroup Scripts
 /// This script provides an implemention of Unity's `BaseInputModule` class, so
-/// that Canvas-based UI elements (_uGUI_) can be selected by looking at them and
-/// pulling the trigger or touching the screen.
-/// This uses the player's gaze and the magnet trigger as a raycast generator.
+/// that Canvas-based (_uGUI_) UI elements can be selected by looking at them and
+/// pulling the Cardboard trigger or touching the screen.
+/// This uses the player's gaze and the Cardboard trigger as a raycast generator.
 ///
-/// To use, attach to the scene's EventSystem object.  Set the Canvas
-/// object's Render Mode to World Space, and set its Event Camera to a (mono) camera that is
-/// controlled by a CardboardHead.  If you'd like gaze to work with 3D scene objects, add a
-/// PhysicsRaycaster to the gazing camera, and add a component that implements one of the Event
-/// interfaces (EventTrigger will work nicely).  The objects must have colliders too.
+/// To use, attach to the scene's **EventSystem** object.  Be sure to move it above the
+/// other modules, such as _TouchInputModule_ and _StandaloneInputModule_, in order
+/// for the user's gaze to take priority in the event system.
+///
+/// Next, set the **Canvas** object's _Render Mode_ to **World Space**, and set its _Event Camera_
+/// to a (mono) camera that is controlled by a CardboardHead.  If you'd like gaze to work
+/// with 3D scene objects, add a _PhysicsRaycaster_ to the gazing camera, and add a
+/// component that implements one of the _Event_ interfaces (_EventTrigger_ will work nicely).
+/// The objects must have colliders too.
 ///
 /// GazeInputModule emits the following events: _Enter_, _Exit_, _Down_, _Up_, _Click_, _Select_,
 /// _Deselect_, and _UpdateSelected_.  Scroll, move, and submit/cancel events are not emitted.
+[AddComponentMenu("Cardboard/GazeInputModule")]
 public class GazeInputModule : BaseInputModule {
   /// Determines whether gaze input is active in VR Mode only (`true`), or all of the
   /// time (`false`).  Set to false if you plan to use direct screen taps or other
@@ -44,22 +49,9 @@ public class GazeInputModule : BaseInputModule {
   [Tooltip("Whether gaze input is active in VR Mode only (true), or all the time (false).")]
   public bool vrModeOnly = false;
 
-  /// An optional object to be placed at a raycast intersection, acting as a 3D
-  /// cursor.  **Important:** Be sure to set any raycasters to ignore the layer that
-  /// this object is in.
-  [Tooltip("Optional object to place at raycast intersections as a 3D cursor. " +
-           "Be sure it is on a layer that raycasts will ignore.")]
-  public GameObject cursor;
-
-  /// If cursor is not null, whether to show the cursor when a raycast occurs.
-  public bool showCursor = true;
-
-  /// If cursor is to be shown, whether to scale its size in order to appear the same size visually
-  /// regardless of its distance.
-  public bool scaleCursorSize = true;
-
-  /// Time in seconds between the pointer down and up events sent by a magnet click.
-  /// Allows time for the UI elements to make their state transitions.
+  /// Time in seconds between the pointer down and up events sent by a Cardboard trigger.
+  /// Allows time for the UI elements to make their state transitions.  If you turn off
+  /// _TapIsTrigger_ in Cardboard, then this setting has no effect.
   [HideInInspector]
   public float clickTime = 0.1f;  // Based on default time for a button to animate to Pressed.
 
@@ -71,15 +63,34 @@ public class GazeInputModule : BaseInputModule {
   private PointerEventData pointerData;
   private Vector2 lastHeadPose;
 
-  /// @cond HIDDEN
+  // GazePointer callbacks
+  public static ICardboardPointer cardboardPointer;
+  // Active state
+  private bool isActive = false;
+
+  /// @cond
   public override bool ShouldActivateModule() {
-    if (!base.ShouldActivateModule()) {
-      return false;
+    bool activeState = base.ShouldActivateModule();
+
+    activeState = activeState && (Cardboard.SDK.VRModeEnabled || !vrModeOnly);
+
+    if (activeState != isActive) {
+      isActive = activeState;
+
+      // Activate gaze pointer
+      if (cardboardPointer != null) {
+        if (isActive) {
+          cardboardPointer.OnGazeEnabled();
+        }
+      }
     }
-    return Cardboard.SDK.VRModeEnabled || !vrModeOnly;
+
+    return activeState;
   }
+  /// @endcond
 
   public override void DeactivateModule() {
+    DisableGazePointer();
     base.DeactivateModule();
     if (pointerData != null) {
       HandlePendingClick();
@@ -87,9 +98,6 @@ public class GazeInputModule : BaseInputModule {
       pointerData = null;
     }
     eventSystem.SetSelectedGameObject(null, GetBaseEventData());
-    if (cursor != null) {
-      cursor.SetActive(false);
-    }
   }
 
   public override bool IsPointerOverGameObject(int pointerId) {
@@ -97,10 +105,17 @@ public class GazeInputModule : BaseInputModule {
   }
 
   public override void Process() {
+    // Save the previous Game Object
+    GameObject gazeObjectPrevious = GetCurrentGameObject();
+
     CastRayFromGaze();
     UpdateCurrentObject();
-    PlaceCursor();
+    UpdateReticle(gazeObjectPrevious);
 
+    // Get the camera
+    Camera camera = pointerData.enterEventCamera;
+
+    // Handle input
     if (!Cardboard.SDK.TapIsTrigger && !Input.GetMouseButtonDown(0) && Input.GetMouseButton(0)) {
       // Drag is only supported if TapIsTrigger is false.
       HandleDrag();
@@ -110,6 +125,9 @@ public class GazeInputModule : BaseInputModule {
                (Cardboard.SDK.Triggered || !Cardboard.SDK.TapIsTrigger && Input.GetMouseButtonDown(0))) {
       // New trigger action.
       HandleTrigger();
+      if (cardboardPointer != null) {
+        cardboardPointer.OnGazeTriggerStart(camera);
+      }
     } else if (!Cardboard.SDK.Triggered && !Input.GetMouseButton(0)) {
       // Check if there is a pending click to handle.
       HandlePendingClick();
@@ -125,6 +143,7 @@ public class GazeInputModule : BaseInputModule {
       lastHeadPose = headPose;
     }
 
+    // Cast a ray into the scene
     pointerData.Reset();
     pointerData.position = new Vector2(hotspot.x * Screen.width, hotspot.y * Screen.height);
     eventSystem.RaycastAll(pointerData, m_RaycastResultCache);
@@ -149,19 +168,26 @@ public class GazeInputModule : BaseInputModule {
     }
   }
 
-  private void PlaceCursor() {
-    if (cursor == null) {
+  void UpdateReticle(GameObject previousGazedObject) {
+    if (cardboardPointer == null) {
       return;
     }
-    var go = pointerData.pointerCurrentRaycast.gameObject;
-    Camera cam = pointerData.enterEventCamera;  // Will be null for overlay hits.
-    cursor.SetActive(go != null && cam != null && showCursor);
-    if (cursor.activeInHierarchy) {
-      // Note: rays through screen start at near clipping plane.
-      float dist = pointerData.pointerCurrentRaycast.distance + cam.nearClipPlane;
-      cursor.transform.position = cam.transform.position + cam.transform.forward * dist;
-      if (scaleCursorSize) {
-        cursor.transform.localScale = Vector3.one * dist;
+
+    Camera camera = pointerData.enterEventCamera; // Get the camera
+    GameObject currentGazeObject = GetCurrentGameObject(); // Get the gaze target
+    Vector3 intersectionPosition = GetIntersectionPosition();
+
+    if (currentGazeObject == previousGazedObject) {
+      if (currentGazeObject != null) {
+        cardboardPointer.OnGazeStay(camera, currentGazeObject, intersectionPosition);
+      }
+    } else {
+      if (previousGazedObject != null) {
+        cardboardPointer.OnGazeExit(camera, previousGazedObject);
+      }
+
+      if (currentGazeObject != null) {
+        cardboardPointer.OnGazeStart(camera, currentGazeObject, intersectionPosition);
       }
     }
   }
@@ -170,7 +196,8 @@ public class GazeInputModule : BaseInputModule {
     bool moving = pointerData.IsPointerMoving();
 
     if (moving && pointerData.pointerDrag != null && !pointerData.dragging) {
-      ExecuteEvents.Execute(pointerData.pointerDrag, pointerData, ExecuteEvents.beginDragHandler);
+      ExecuteEvents.Execute(pointerData.pointerDrag, pointerData,
+          ExecuteEvents.beginDragHandler);
       pointerData.dragging = true;
     }
 
@@ -193,6 +220,12 @@ public class GazeInputModule : BaseInputModule {
     if (!pointerData.eligibleForClick) {
       return;
     }
+
+    if (cardboardPointer != null) {
+      Camera camera = pointerData.enterEventCamera;
+      cardboardPointer.OnGazeTriggerEnd(camera);
+    }
+
     var go = pointerData.pointerCurrentRaycast.gameObject;
 
     // Send pointer up and click events.
@@ -240,7 +273,6 @@ public class GazeInputModule : BaseInputModule {
     pointerData.useDragThreshold = true;
     pointerData.clickCount = 1;
     pointerData.clickTime = Time.unscaledTime;
-
   }
 
   private Vector2 NormalizedCartesianToSpherical(Vector3 cartCoords) {
@@ -253,4 +285,40 @@ public class GazeInputModule : BaseInputModule {
     float outElevation = Mathf.Asin(cartCoords.y);
     return new Vector2(outPolar, outElevation);
   }
+
+  GameObject GetCurrentGameObject() {
+    if (pointerData != null && pointerData.enterEventCamera != null) {
+      return pointerData.pointerCurrentRaycast.gameObject;
+    }
+
+    return null;
+  }
+
+  Vector3 GetIntersectionPosition() {
+    // Check for camera
+    Camera cam = pointerData.enterEventCamera;
+    if (cam == null) {
+      return Vector3.zero;
+    }
+
+    float intersectionDistance = pointerData.pointerCurrentRaycast.distance + cam.nearClipPlane;
+    Vector3 intersectionPosition = cam.transform.position + cam.transform.forward * intersectionDistance;
+
+    return intersectionPosition;
+  }
+
+  void DisableGazePointer() {
+    if (cardboardPointer == null) {
+      return;
+    }
+
+    GameObject currentGameObject = GetCurrentGameObject();
+    if (currentGameObject) {
+      Camera camera = pointerData.enterEventCamera;
+      cardboardPointer.OnGazeExit(camera, currentGameObject);
+    }
+
+    cardboardPointer.OnGazeDisabled();
+  }
 }
+

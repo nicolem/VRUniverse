@@ -14,7 +14,9 @@
 
 using UnityEngine;
 
+/// @cond
 [RequireComponent(typeof(Camera))]
+[AddComponentMenu("Cardboard/StereoRenderEffect")]
 public class StereoRenderEffect : MonoBehaviour {
   private Material material;
 
@@ -46,3 +48,5 @@ public class StereoRenderEffect : MonoBehaviour {
     GL.PopMatrix();
   }
 }
+/// @endcond
+

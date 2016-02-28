@@ -39,6 +39,10 @@ public class CardboardiOSDevice : BaseCardboardDevice {
     return support;
   }
 
+  public override void SetUILayerEnabled(bool enabled) {
+    setUILayerEnabled(enabled);
+  }
+
   public override void SetVRModeEnabled(bool enabled) {
     setVRModeEnabled(enabled);
   }
@@ -57,6 +61,11 @@ public class CardboardiOSDevice : BaseCardboardDevice {
 
   public override void SetShowVrBackButtonOnlyInVR(bool only) {
     setShowVrBackButtonOnlyInVR(only);
+  }
+
+  public override void SetAutoDriftCorrectionEnabled(bool enabled){
+    // For iOS don't use Drift Correction.
+    base.SetAutoDriftCorrectionEnabled(false);
   }
 
   public override void SetTapIsTrigger(bool enabled) {
@@ -82,10 +91,11 @@ public class CardboardiOSDevice : BaseCardboardDevice {
   // Set this to true to force an onboarding process.
   private bool debugOnboarding = false;
 
-  public override void OnFocus(bool focus) {
-    if (focus && (debugOnboarding || !isOnboardingDone())) {
+  public void ShowOnboardingDialog() {
+    if (debugOnboarding || !isOnboardingDone()) {
       debugOnboarding = false;
       launchOnboardingDialog();
+      setOnboardingDone();
     }
   }
 
@@ -95,6 +105,9 @@ public class CardboardiOSDevice : BaseCardboardDevice {
 
   [DllImport("__Internal")]
   private static extern bool isOpenGLAPI();
+
+  [DllImport("__Internal")]
+  private static extern void setUILayerEnabled(bool enabled);
 
   [DllImport("__Internal")]
   private static extern void setVRModeEnabled(bool enabled);

@@ -42,4 +42,8 @@
 
 - (void)pause:(bool)paused;
 
+// Override this method in a subclass to hook your own finishActivityAndReturn
+// functionality.
+- (void)finishActivityAndReturn;
+
 @end

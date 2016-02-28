@@ -80,11 +80,11 @@ BaseVRDevice
 
   public override void Init() {
     DisplayMetrics dm = GetDisplayMetrics();
-    Start(dm.width, dm.height, dm.xdpi, dm.ydpi);
 
+    // Start will send a log event, so SetUnityVersion first.
     byte[] version = System.Text.Encoding.UTF8.GetBytes(Application.unityVersion);
     SetUnityVersion(version, version.Length);
-
+    Start(dm.width, dm.height, dm.xdpi, dm.ydpi);
     SetEventCallback(OnVREvent);
   }
 

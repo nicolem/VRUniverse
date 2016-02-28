@@ -84,10 +84,10 @@ public class CardboardEditor : Editor {
         EditorGUILayout.Toggle(vrModeLabel, cardboard.VRModeEnabled);
     cardboard.DistortionCorrection = (Cardboard.DistortionCorrectionMethod)
         EditorGUILayout.EnumPopup(distortionCorrectionLabel, cardboard.DistortionCorrection);
-    float oldScale = Cardboard.SDK.StereoScreenScale;
+    float oldScale = cardboard.StereoScreenScale;
     float newScale = EditorGUILayout.Slider(stereoScreenScale, oldScale, 0.25f, 2.0f);
     if (!Mathf.Approximately(newScale, oldScale)) {
-      Cardboard.SDK.StereoScreenScale = newScale;
+      cardboard.StereoScreenScale = newScale;
     }
     cardboard.NeckModelScale =
         EditorGUILayout.Slider(neckModelScaleLabel, cardboard.NeckModelScale, 0, 1);

@@ -15,7 +15,7 @@ function Update ()
         {
             if(Input.GetTouch(0).phase == TouchPhase.Began)
             {
-                Application.LoadLevel("SunParticles");
+                Application.LoadLevel("StartMenuScene");
             }
         }
 
@@ -23,7 +23,7 @@ function Update ()
 
         if(Input.GetMouseButtonDown(0)) {
             Debug.Log("code is running");
-            Application.LoadLevel("Sun");
+            Application.LoadLevel("StartMenuScene");
             Debug.Log("buttn pressed");
         }
     }

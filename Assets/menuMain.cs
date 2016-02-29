@@ -8,6 +8,7 @@ public class menuMain : MonoBehaviour
     // ....I don't really know what I'm doing here
     public GameObject sun;
     public GameObject earth;
+    public GameObject returnButton;
 
     // Use this for initialization
     void Start()
@@ -16,6 +17,8 @@ public class menuMain : MonoBehaviour
 
         sun = GameObject.FindGameObjectWithTag("SUN");
         earth = GameObject.FindGameObjectWithTag("EARTH");
+        returnButton = GameObject.FindGameObjectWithTag("RETURNBUTTON");
+
     }
 
     // Update is called once per frame
@@ -35,10 +38,15 @@ public class menuMain : MonoBehaviour
     //does the same 
     public void earthPress()
     {
-
-
         Debug.Log("in earth \n");
         Application.LoadLevel("earth");
+
+    }
+
+    public void returnToMenuPress()
+    {
+        Debug.Log("in Main Menu \n");
+        Application.LoadLevel("StartMenuScene");
 
     }
 }

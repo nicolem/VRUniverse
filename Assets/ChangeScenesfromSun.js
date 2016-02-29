@@ -11,13 +11,6 @@ function Update () {
                 Application.LoadLevel("SunParticles");
             }
         }
-        else if(Input.touchCount == 2) 
-        {
-            if(Input.GetTouch(0).phase == TouchPhase.Began)
-            {
-                //Load Menu Scene
-            }
-        }
     }
     else if(platform == RuntimePlatform.OSXEditor || platform == RuntimePlatform.WindowsEditor){
 

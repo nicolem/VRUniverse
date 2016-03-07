@@ -1,8 +1,8 @@
 title: Long Haul
 description: Long Form Jekyll theme built with SASS / COMPASS / SUSY
 
-url: http://brianmaierjr.github.com/long-haul
-baseurl: ""
+url: http://www.nicolemaneth.com/
+baseurl: "/VRUniverse"
 paginate_path: "blog/page:num/"
 permalink: blog/:title/
 
@@ -20,9 +20,9 @@ navigation:
    url: /contact
 
 social:
-   github: brianmaierjr
+   github: nicolem
    twitter: brianmaierjr
    facebook: brianmaierjr
-   email: brimaidesigns@gmail.com
+   email: nicole.maneth@gmail.com
 
-google_analytics: "UA-58263416-1"
+google_analytics: ""

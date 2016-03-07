@@ -1,25 +1,18 @@
 ---
 layout: default
-title: About Long Haul
+title: About VRSquad
 ---
 
 <div class="post">
-	<h1 class="pageTitle">About Long Haul</h1>
+	<h1 class="pageTitle">About VRSquad</h1>
 	<img src="{{ '/assets/img/touring.jpg' | prepend: site.baseurl }}" alt=""> 
-	<p class="intro">Long Haul is a minimal, long form <a href="http://jekyllrb.com">Jekyll</a> Theme. It can be used as is or customized to your hearts desire.</p>
-	<p>Long Haul was created in honor of all the hard working touring bicycles that have traversed the globe time and time again. Take it for a spin.</p>
+	<p>This is our Senior Capstone project.  We wanted to make something available to many users that was visually apealing.  The Google Cardboard Project has made a lot of advances recently, so we decided to make a Virtual Reality version of a solar system tour for Android compatable with Google Cardboard Viewers</p>
 	<h2>Features</h2>
 	<ul>
-		<li>Built with <a href="http://sass-lang.com/">SASS</a> + <a href="http://compass-style.org/">COMPASS</a></li>
-  		<li>Layout with <a href="http://susy.oddbird.net/">SUSY Grid</a></li>
-  		<li>SVG Social Icons from <a href="http://customizr.net/icons/">Customizr</a></li>
-  		<li><a href="http://responsive-nav.com/">Responsive Nav Menu</a></li>
-  		<li><a href="https://github.com/snaptortoise/jekyll-rss-feeds">XML Feed for RSS Readers</a></li>
-  		<li>Contact Form via <a href="http://formspree.io/">Formspree</a></li>
-      <li>5 Post Loop with excerpt on Home Page</li>
-  		<li>Previous / Next Post Navigation</li>
-      <li>Estimated Reading Time for posts</li>
-  		<li><a href="https://github.com/adobe-webplatform/dropcap.js">Drop Cap</a> on posts</li>
-  		<li><a href="http://typecast.com/blog/a-more-modern-scale-for-web-typography">A Better Type Scale</a></li>
-  	</ul>
+		<li>Uses imagery from NASA so the models are scientifically accurate</li>
+		<li>Informational pop-ups so you're learning as you play</li>
+		<li>360 &deg; view around the user of the solar system</li>
+		<li>All 8 planets plus the dwarf planet pluto and the Sun</li>
+		<li>Look inside the planets and the sun to view their inner structures</li>
+	</ul>
 </div>

@@ -1,5 +1,5 @@
-title: Long Haul
-description: Long Form Jekyll theme built with SASS / COMPASS / SUSY
+title: VRUniverse
+description: Put the Universe in your Pocket
 
 url: http://www.nicolemaneth.com/
 baseurl: "/VRUniverse"
@@ -21,8 +21,6 @@ navigation:
 
 social:
    github: nicolem
-   twitter: brianmaierjr
-   facebook: brianmaierjr
    email: nicole.maneth@gmail.com
 
 google_analytics: ""

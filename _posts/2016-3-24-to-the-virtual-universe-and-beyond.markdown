@@ -2,6 +2,7 @@
 layout: post
 title:  "To the Virtual Universe and Beyond!"
 date:   2016-3-24
+description:  "This first project update blog post covers the basic features of our Android App.  We talk about our model acquisiton, transitions between scenes, selection menus, and creating multiple views of each solar system object."
 ---
 
 ### Sun: And additional models!

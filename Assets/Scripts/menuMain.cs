@@ -19,6 +19,7 @@ public class menuMain : MonoBehaviour
         earth = GameObject.FindGameObjectWithTag("EARTH");
         returnButton = GameObject.FindGameObjectWithTag("RETURNBUTTON");
 
+        Cardboard.SDK.VRModeEnabled = ApplicationModel.vrbool;
     }
 
     // Update is called once per frame

@@ -12,7 +12,7 @@ public class ChangeScenesfromEarth : MonoBehaviour {
 	void Update () {
         if (Input.GetMouseButtonDown(0))
         {
-            Application.LoadLevel("StartMenuScene");
+            Application.LoadLevel("EarthParticles");
         }
     }
 }

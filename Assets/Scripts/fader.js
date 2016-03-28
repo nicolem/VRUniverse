@@ -31,6 +31,7 @@ function Start () {
 //	DontDestroyOnLoad(transform.gameObject);
     }
 
+//    Debug.Log("Starting Up");
     rend = GetComponent.<Renderer>();
     rend.material.color = Color.black;
     fadein = true;
@@ -38,7 +39,8 @@ function Start () {
 
 function Update () {
     if (fadein){
-	rend.material.color = Color.Lerp(rend.material.color, new Color(0,0,0,0), fadeSpeed * Time.deltaTime);        
+	rend.material.color = Color.Lerp(rend.material.color, new Color(0,0,0,0), fadeSpeed * Time.deltaTime);
+	Debug.Log(rend.material.color.a);
 	if(rend.material.color.a <= 0.01){
             fadein = false;
         }

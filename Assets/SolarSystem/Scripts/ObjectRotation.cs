@@ -10,8 +10,8 @@ public class ObjectRotation : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
 	
-		transform.Rotate(-Vector3.forward * Time.deltaTime * planetSpeedRotation);
+		transform.Rotate(-Vector3.up * Time.deltaTime * planetSpeedRotation);
 	}
 }

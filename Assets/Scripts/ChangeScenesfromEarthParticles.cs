@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class ChangeScenesfromEarthParticles : MonoBehaviour {
@@ -14,7 +15,7 @@ public class ChangeScenesfromEarthParticles : MonoBehaviour {
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Application.LoadLevel("StartMenuScene");
+            SceneManager.LoadScene("StartMenuScene");
         }
     }
 }

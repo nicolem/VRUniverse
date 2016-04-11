@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class ChangeScenesfromSunParticles : MonoBehaviour {
@@ -13,7 +14,7 @@ public class ChangeScenesfromSunParticles : MonoBehaviour {
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Application.LoadLevel("StartMenuScene");
+            SceneManager.LoadScene("StartMenuScene");
         }
     }
 }

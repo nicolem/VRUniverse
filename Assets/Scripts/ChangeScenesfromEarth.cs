@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class ChangeScenesfromEarth : MonoBehaviour {
@@ -12,7 +13,7 @@ public class ChangeScenesfromEarth : MonoBehaviour {
 	void Update () {
         if (Input.GetMouseButtonDown(0))
         {
-            Application.LoadLevel("EarthParticles");
+            SceneManager.LoadScene("EarthParticles");
         }
     }
 }

@@ -1,0 +1,65 @@
+﻿Orbital characteristics NEWLINE NEWLINE
+Periapsis TAB 420000 km TAB (0.002807 AU) NEWLINE
+Apoapsis TAB 423400 km TAB (0.002830 AU) NEWLINE
+Mean orbit radius TAB 421700 km (0.002819 AU) NEWLINE
+Eccentricity TAB 0.0041 NEWLINE
+Orbital period TAB 1.769137786 d  NEWLINE
+Average orbital speed TAB 17.334 km/s NEWLINE
+Inclination TAB 0.05 (to Jupiter's equator) TAB 2.213 (to the ecliptic) NEWLINE
+Satellite of Jupiter NEWLINE
+NEWLINE
+Physical characteristics NEWLINE 
+NEWLINE
+Dimensions TAB 3,660.0 × 3,637.4 × 3,630.6 km NEWLINE
+Mean radius TAB 1821.6±0.5 km (0.286 Earths) NEWLINE
+Surface area TAB 41910000 km2 (0.082 Earths) NEWLINE
+Volume TAB 2.53×1010 km3 (0.023 Earths) NEWLINE
+Mass TAB (8.931938±0.000018)×1022 kg (0.015 Earths) NEWLINE
+Mean density TAB 3.528±0.006 g/cm3 NEWLINE
+Surface gravity TAB 1.796 m/s2 (0.183 g) NEWLINE
+Escape velocity TAB 2.558 km/s NEWLINE
+Albedo TAB 0.63±0.02 NEWLINE
+Rotation TAB period synchronous NEWLINE
+Surface temp. TAB min TAB mean TAB max NEWLINE
+TAB TAB TAB TAB TAB TAB TAB 90 K TAB 110 K TAB 130 K NEWLINE
+Apparent magnitude TAB 5.02 (opposition) NEWLINE
+NEWLINE
+NEWLINE
+Io /ˈaɪ.oʊ/ is the innermost of the four Galilean moons of the planet Jupiter.
+It is the fourth-largest moon, has the highest density of all the moons, and is the driest known object in the Solar System.
+ It was discovered in 1610 and was named after the mythological character Io, a priestess of Hera who became one of Zeus's lovers.
+NEWLINE
+NEWLINE
+With over 400 active volcanoes, Io is the most geologically active object in the Solar System.
+This extreme geologic activity is the result of tidal heating from friction generated within Io's interior as it is pulled between Jupiter and the other Galilean satellites—Europa, Ganymede and Callisto.
+Several volcanoes produce plumes of sulfur and sulfur dioxide that climb as high as 500 km (300 mi) above the surface.
+Io's surface is also dotted with more than 100 mountains that have been uplifted by extensive compression at the base of Io's silicate crust.
+Some of these peaks are taller than Mount Everest.
+Unlike most satellites in the outer Solar System, which are mostly composed of water ice, Io is primarily composed of silicate rock surrounding a molten iron or iron-sulfide core. Most of Io's surface is composed of extensive plains coated with sulfur and sulfur-dioxide frost.
+NEWLINE
+NEWLINE
+Io's volcanism is responsible for many of its unique features.
+Its volcanic plumes and lava flows produce large surface changes and paint the surface in various subtle shades of yellow, red, white, black, and green, largely due to allotropes and compounds of sulfur.
+Numerous extensive lava flows, several more than 500 km (300 mi) in length, also mark the surface. The materials produced by this volcanism make up Io's thin, patchy atmosphere and Jupiter's extensive magnetosphere.
+Io's volcanic ejecta also produce a large plasma torus around Jupiter.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

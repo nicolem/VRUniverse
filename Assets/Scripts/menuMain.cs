@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System;
 
@@ -32,7 +33,7 @@ public class menuMain : MonoBehaviour
     public void sunPress()
     {
         Debug.Log("in sun \n");
-        Application.LoadLevel("sun");
+        SceneManager.LoadScene("sun");
 
     }
 
@@ -40,14 +41,14 @@ public class menuMain : MonoBehaviour
     public void earthPress()
     {
         Debug.Log("in earth \n");
-        Application.LoadLevel("earth");
+        SceneManager.LoadScene("earth");
 
     }
 
     public void returnToMenuPress()
     {
         Debug.Log("in Main Menu \n");
-        Application.LoadLevel("StartMenuScene");
+        SceneManager.LoadScene("StartMenuScene");
 
     }
 }

@@ -45,6 +45,74 @@ public class menuMain : MonoBehaviour
 
     }
 
+
+    public void mercuryPress()
+    {
+        Debug.Log("in mercury \n");
+        SceneManager.LoadScene("mercury");
+
+    }
+
+    public void venusPress()
+    {
+        Debug.Log("in venus \n");
+        SceneManager.LoadScene("venus");
+
+    }
+
+
+    public void marsPress()
+    {
+        Debug.Log("in mars \n");
+        SceneManager.LoadScene("mars");
+
+    }
+
+    public void jupiterPress()
+    {
+        Debug.Log("in jupiter \n");
+        SceneManager.LoadScene("jupiter");
+
+    }
+
+
+    public void saturnPress()
+    {
+        Debug.Log("in saturn \n");
+        SceneManager.LoadScene("saturn");
+
+    }
+
+
+    public void uranusPress()
+    {
+        Debug.Log("in uranus \n");
+        SceneManager.LoadScene("uranus");
+
+    }
+
+
+    public void neptunePress()
+    {
+        Debug.Log("in neptune \n");
+        SceneManager.LoadScene("neptune");
+
+    }
+
+
+    public void plutoPress()
+    {
+        Debug.Log("in pluto \n");
+        SceneManager.LoadScene("pluto");
+
+    }
+
+
+
+
+
+
+
     public void returnToMenuPress()
     {
         Debug.Log("in Main Menu \n");

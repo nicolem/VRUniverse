@@ -2,18 +2,19 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class ChangeScenesfromSun : MonoBehaviour {
+public class ChangeScenesfromSunMolecules : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
         Cardboard.SDK.VRModeEnabled = ApplicationModel.vrbool;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         if (Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene("SunMolecules");
+            SceneManager.LoadScene("StartMenuScene");
         }
     }
 }

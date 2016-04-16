@@ -33,7 +33,7 @@ public class menuMain : MonoBehaviour
     public void sunPress()
     {
         Debug.Log("in sun \n");
-        SceneManager.LoadScene("sun");
+        SceneManager.LoadScene("Sun");
 
     }
 
@@ -41,7 +41,7 @@ public class menuMain : MonoBehaviour
     public void earthPress()
     {
         Debug.Log("in earth \n");
-        SceneManager.LoadScene("earth");
+        SceneManager.LoadScene("Earth");
 
     }
 
@@ -49,14 +49,14 @@ public class menuMain : MonoBehaviour
     public void mercuryPress()
     {
         Debug.Log("in mercury \n");
-        SceneManager.LoadScene("mercury");
+        SceneManager.LoadScene("Mercury");
 
     }
 
     public void venusPress()
     {
         Debug.Log("in venus \n");
-        SceneManager.LoadScene("venus");
+        SceneManager.LoadScene("Venus");
 
     }
 
@@ -64,14 +64,14 @@ public class menuMain : MonoBehaviour
     public void marsPress()
     {
         Debug.Log("in mars \n");
-        SceneManager.LoadScene("mars");
+        SceneManager.LoadScene("Mars");
 
     }
 
     public void jupiterPress()
     {
         Debug.Log("in jupiter \n");
-        SceneManager.LoadScene("jupiter");
+        SceneManager.LoadScene("Jupiter");
 
     }
 
@@ -79,7 +79,7 @@ public class menuMain : MonoBehaviour
     public void saturnPress()
     {
         Debug.Log("in saturn \n");
-        SceneManager.LoadScene("saturn");
+        SceneManager.LoadScene("Saturn");
 
     }
 
@@ -87,7 +87,7 @@ public class menuMain : MonoBehaviour
     public void uranusPress()
     {
         Debug.Log("in uranus \n");
-        SceneManager.LoadScene("uranus");
+        SceneManager.LoadScene("Uranus");
 
     }
 
@@ -95,7 +95,7 @@ public class menuMain : MonoBehaviour
     public void neptunePress()
     {
         Debug.Log("in neptune \n");
-        SceneManager.LoadScene("neptune");
+        SceneManager.LoadScene("Neptune");
 
     }
 
@@ -103,7 +103,7 @@ public class menuMain : MonoBehaviour
     public void plutoPress()
     {
         Debug.Log("in pluto \n");
-        SceneManager.LoadScene("pluto");
+        SceneManager.LoadScene("Pluto");
 
     }
 

@@ -2,10 +2,11 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class ChangeScenesfromSunParticles : MonoBehaviour {
+public class ChangeScenesfromEarthMolecules : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         Cardboard.SDK.VRModeEnabled = ApplicationModel.vrbool;
     }
 

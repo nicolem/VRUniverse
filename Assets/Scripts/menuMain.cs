@@ -6,20 +6,14 @@ using System;
 public class menuMain : MonoBehaviour
 {
 
-    // ....I don't really know what I'm doing here
-    public GameObject sun;
-    public GameObject earth;
-    public GameObject returnButton;
+
+
 
     // Use this for initialization
     void Start()
     {
         Cardboard.Create();
-
-        sun = GameObject.FindGameObjectWithTag("SUN");
-        earth = GameObject.FindGameObjectWithTag("EARTH");
-        returnButton = GameObject.FindGameObjectWithTag("RETURNBUTTON");
-
+        
         Cardboard.SDK.VRModeEnabled = ApplicationModel.vrbool;
     }
 
@@ -29,7 +23,56 @@ public class menuMain : MonoBehaviour
         // yoyoyo do nothing
     }
 
-    // hopefully it changes the text color on clicks
+    /*
+
+    void OnGazeStart()
+    {
+        GameObject light = this.transform.GetChild(0).gameObject;
+
+        if (light != null)
+        {
+
+            light.GetComponent<Light>().intensity = 8;
+
+            bool onOrOff = light.GetComponent<Light>().isActiveAndEnabled;
+            string name = light.name;
+
+            Debug.Log("Lights On");
+            Debug.Log(name);
+            Debug.Log(onOrOff);
+
+        }
+        else
+        {
+            Debug.Log("Lights not turned on");
+        }
+    }
+
+    void OnGazeExit()
+    {
+        GameObject light = this.transform.GetChild(0).gameObject;
+
+
+        if (light != null)
+        {
+            light.GetComponent<Light>().intensity = 0;
+
+            bool onOrOff = light.GetComponent<Light>().isActiveAndEnabled;
+            string name = light.name;
+
+            Debug.Log("Lights Off");
+            Debug.Log(name);
+            Debug.Log(onOrOff);
+        }
+        else
+        {
+            Debug.Log("Lights not turned off");
+        }
+        //light.SetActive(false);
+    }
+
+    */
+    //goes to the sun scene on click
     public void sunPress()
     {
         Debug.Log("in sun \n");
@@ -37,7 +80,7 @@ public class menuMain : MonoBehaviour
 
     }
 
-    //does the same 
+    //does the same but for appropriate solar system object
     public void earthPress()
     {
         Debug.Log("in earth \n");
@@ -106,11 +149,6 @@ public class menuMain : MonoBehaviour
         SceneManager.LoadScene("Pluto");
 
     }
-
-
-
-
-
 
 
     public void returnToMenuPress()

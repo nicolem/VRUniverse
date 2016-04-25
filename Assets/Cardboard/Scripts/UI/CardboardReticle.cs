@@ -15,6 +15,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
+using System;
 
 [AddComponentMenu("Cardboard/UI/CardboardReticle")]
 [RequireComponent(typeof(Renderer))]
@@ -92,7 +93,29 @@ public class CardboardReticle : MonoBehaviour, ICardboardPointer {
   /// point of the ray sent from the camera on the object.
   public void OnGazeStart(Camera camera, GameObject targetObject, Vector3 intersectionPosition) {
     SetGazeTarget(intersectionPosition);
-  }
+
+        GameObject light = targetObject.transform.GetChild(0).gameObject;
+
+        if (light != null)
+        {
+
+            light.GetComponent<Light>().intensity = 8;
+
+            bool onOrOff = light.GetComponent<Light>().isActiveAndEnabled;
+            string name = light.name;
+
+            Debug.Log("Lights On");
+            Debug.Log(name);
+            Debug.Log(onOrOff);
+
+        }
+        else
+        {
+            Debug.Log("Lights not turned on");
+        }
+
+
+    }
 
   /// Called every frame the user is still looking at a valid GameObject. This
   /// can be a 3D or UI element.
@@ -115,7 +138,28 @@ public class CardboardReticle : MonoBehaviour, ICardboardPointer {
     reticleDistanceInMeters = kReticleDistanceMax;
     reticleInnerAngle = kReticleMinInnerAngle;
     reticleOuterAngle = kReticleMinOuterAngle;
-  }
+
+        GameObject light = targetObject.transform.GetChild(0).gameObject;
+
+
+        if (light != null)
+        {
+            light.GetComponent<Light>().intensity = 0;
+
+            bool onOrOff = light.GetComponent<Light>().isActiveAndEnabled;
+            string name = light.name;
+
+            Debug.Log("Lights Off");
+            Debug.Log(name);
+            Debug.Log(onOrOff);
+        }
+        else
+        {
+            Debug.Log("Lights not turned off");
+        }
+
+
+    }
 
   /// Called when the Cardboard trigger is initiated. This is practically when
   /// the user begins pressing the trigger.

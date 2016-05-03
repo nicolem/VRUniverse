@@ -46,4 +46,6 @@ Each planet has its own individual molecular scene associated with the main scen
 
 Look for us in the Google Play store in the coming weeks.  We’ll update you here when we’ve officially launched.
 
-<img src="{{ '/assets/img/blog2/icon1.png' | prepend: site.baseurl }}" alt="" width = "200" style="text-align: center">
+<div style="text-align: center">
+	<img src="{{ '/assets/img/blog2/icon1.png' | prepend: site.baseurl }}" alt="" width = "200">
+</div>

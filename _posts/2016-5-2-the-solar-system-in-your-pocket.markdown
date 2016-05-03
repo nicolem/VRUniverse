@@ -24,28 +24,24 @@ All planets now have a scene that shows some part of their molecular makeup! The
 The molecular scene of the sun shows both hydrogen and helium, with much more of the former. The amount of hydrogen in the sun is so much greater because the sun’s nuclear fusion is driven by the combining of four hydrogen molecules into one helium molecule. This process generates the heat and light we associate with the star in the form of energetic photons that are sent to all corners of the solar system. 
 
 <img src="{{ '/assets/img/blog2/suninside2d.png' | prepend: site.baseurl }}" alt="">
-
 Mercury, Venus, Earth, and Mars all have cores with very well known and very similar molecular makeups, making these molecular scenes the easiest to implement. The elements in the core remained very similar between them all, the main differences came in the molecules’ speeds which depended simply upon the state of matter in the core. Gaseous molecules move much faster than molecules in liquids, and molecules in a solid are almost completely stationary, and usually in some kind of a lattice formation.
 
 <img src="{{ '/assets/img/blog2/mercuryinside2d.png' | prepend: site.baseurl }}" alt="">
-
 For Jupiter and Saturn the molecular display ended up showing the layer of conducting liquid hydrogen surrounding the core of the planet rather than the actual core, which is thought to be comprised of solid material of some sort, but they are just too far away and too big for us to know for sure at this point in the exploration of the Solar System.  
 The core of Uranus is composed mainly of chemical compounds like methane, ammonia, and water rather than singular elements like most of the planets, however these were approximated to singular spheres for each compound, which was explained in the text box associated with the molecule scene.
 
 <img src="{{ '/assets/img/blog2/uranusinside2d.png' | prepend: site.baseurl }}" alt="">
- 
 Finally, both Neptune and Pluto have cores made up of what is most likely some kind of generic “rocky material” which was also approximated with a simple sphere. Unfortunately they are just too far away from earth to have sustained the same kind of intense and thorough study as the inner planets, though this level of observation is sure to come soon to all of the outer planets. 
 
 <img src="{{ '/assets/img/blog2/neptuneinside2d.png' | prepend: site.baseurl }}" alt="">
-
 Each planet has its own individual molecular scene associated with the main scene already in existence for each planet. The molecules are approximated using multiple particle systems within each scene. The particle systems are a game object within unity that emit a certain number of particles/second randomly either from the shell of a shape, or the center of said shape. The lifetimes of these particles can be adjusted, as well as color and size. The speed of each particle can also be manipulated, and the natural forces felt by molecules were attempted to be approximated within the particle systems as well. With all that can be done with the unity object of particle systems, these objects were used to model the complex interactions of molecules using the various ways the particles can be emitted, as well as the above possible manipulations of speed and force pertaining to each particle over its lifetime. When multiple particle systems work together, the chaotic looking result interprets well the concept of a gaseous, liquid or even solid planetary core at a molecular level.
 
 ### Menus
 
-###Launching into the Real World
+### Launching into the Real World
 
-Look for us in the Google Play store in the coming weeks.  We’ll update you here when we’ve officially launched.
+Look for us in the Google Play store in the coming weeks.  We’ll update you here when the app is available.
 
 <div style="text-align: center">
-	<img src="{{ '/assets/img/blog2/icon1.png' | prepend: site.baseurl }}" alt="" width = "200">
+	<img src="{{ '/assets/img/blog2/icon1.png' | prepend: site.baseurl }}" alt="" width = "250">
 </div>

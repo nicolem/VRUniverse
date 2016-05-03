@@ -11,7 +11,8 @@ description:  "The end of the regular development of VRUniverse is approaching q
 The end of the regular development of VRUniverse is approaching quickly. The app designed for google cardboard is becoming more and more polished and cohesive, with the different parts each team member developed fitting together exceedingly well, with most of the hoped for functionality being implemented. From the final menu to the scaled sun shown from each planet and the text boxes throughout the app, much has changed since the last update, and all for the better. 
 
 <div style="text-align: center"><img src="{{ '/assets/img/blog2/main2d.png' | prepend: site.baseurl }}" alt="" style="width:60%"></div>
-<div style="text-align: center"><iframe src="https://drive.google.com/file/d/0B_SmWf0oK6g5dlFhLWFYWHA1enM/preview" width="640" height="480"></iframe></div>
+<div style="text-align: center; position: relative; padding-bottom: 56.25%; padding-top: 25px; height:0;">
+<iframe src="https://drive.google.com/file/d/0B_SmWf0oK6g5dlFhLWFYWHA1enM/preview" width="640" height="480" style="position: absolute; top:0; left:0; width: 100%; height: 100%;"></iframe></div>
 
 ### Main Planet Views
 

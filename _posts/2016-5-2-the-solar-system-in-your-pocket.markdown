@@ -41,3 +41,9 @@ Finally, both Neptune and Pluto have cores made up of what is most likely some k
 Each planet has its own individual molecular scene associated with the main scene already in existence for each planet. The molecules are approximated using multiple particle systems within each scene. The particle systems are a game object within unity that emit a certain number of particles/second randomly either from the shell of a shape, or the center of said shape. The lifetimes of these particles can be adjusted, as well as color and size. The speed of each particle can also be manipulated, and the natural forces felt by molecules were attempted to be approximated within the particle systems as well. With all that can be done with the unity object of particle systems, these objects were used to model the complex interactions of molecules using the various ways the particles can be emitted, as well as the above possible manipulations of speed and force pertaining to each particle over its lifetime. When multiple particle systems work together, the chaotic looking result interprets well the concept of a gaseous, liquid or even solid planetary core at a molecular level.
 
 ### Menus
+
+###Launching into the Real World
+
+Look for us in the Google Play store in the coming weeks.  We’ll update you here when we’ve officially launched.
+
+<img src="{{ '/assets/img/blog2/icon1.png' | prepend: site.baseurl }}" alt="">

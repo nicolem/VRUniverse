@@ -10,7 +10,7 @@ description:  "The end of the regular development of VRUniverse is approaching q
 
 The end of the regular development of VRUniverse is approaching quickly. The app designed for google cardboard is becoming more and more polished and cohesive, with the different parts each team member developed fitting together exceedingly well, with most of the hoped for functionality being implemented. From the final menu to the scaled sun shown from each planet and the text boxes throughout the app, much has changed since the last update, and all for the better. 
 
-<img src="{{ '/assets/img/blog2/main2d.png' | prepend: site.baseurl }}" alt="" style="width:80%">
+<center><img src="{{ '/assets/img/blog2/main2d.png' | prepend: site.baseurl }}" alt="" style="width:80%"></center>
 
 ### Main Planet Views
 
@@ -18,9 +18,10 @@ Our project is now complete with the Sun, eight planets, and the dwarf planet Pl
 
 The planets are sized at a relative scale, instead of being scientifically accurate.  This means Jupiter fills up your screen, but you can still see details on Pluto’s surface.  Each planet scene has the Sun on the opposite side.  The sun’s size is set to an accurate scale. Pluto is 40 times further away from the Sun than Earth, so in the Pluto scene the Sun is a tiny yellow dot in the distance.  In the Mercury scene the Sun is very close, almost as big as in the Sun’s own scene.
 
-<img src="{{ '/assets/img/blog2/plutosun2d.png' | prepend: site.baseurl }}" alt="" style="width:80%">
+<center><img src="{{ '/assets/img/blog2/plutosun2d.png' | prepend: site.baseurl }}" alt="" style="width:80%"></center>
 
 ### Text Boxes and Fun Facts
+
 The text boxes are essential to accomplishing VR Universe’s main goal: education. This means that they must be scientifically accurate, as well as readable and interesting. To ensure this is the case all of the fun facts and data are from solarsystem.nasa.gov, the authoritative NASA website on the planets, sun and the rest of our solar system. Each statistic and detail is based upon NASA missions and scientific surveys, so they are as accurate as possible.
 Because there is so much scientific literature and so much known about the sun and each of the planets, it is necessary to pick the facts with care. One consideration is the scientific background of the user. We want VR Universe to be usable by people of all backgrounds, so none of the information can be too technical or assume too much familiarity with the language of space science. On the left side of the sun and each planet are a series of more qualitative features, such as the general environment of the astronomical body, interesting geological and atmospheric features and the origin of its name. On the right side a text box describes it more quantitatively by giving numerical values for the mass, volume, density, surface gravity, temperature, length of day and length of year. Some of these numbers can be confusing however. When I say that Mercury’s radius is 2.4397 x 103 km, what does that really mean? Is that big or small? For that reason we use the Earth as a reference when describing many planetary features. It is hard our minds to grasp how large the Earth itself is, but it can still serve as a good point of comparison for many features. By also including the fact that Mercury’s radius is 0.3829 times Earth’s radius, we are able to give the user a sense of scale and a way to understand our solar system in relative terms.
 One challenge of developing a virtual reality education app is that the text has to readable in 3D with the Google Cardboard. This means it has to be close to the user and large enough to read without overwhelming them or dominating the visuals of the planetary models. It also needs to be readable in the 2D version for people who do not have a Google Cardboard or simply want to enjoy the app in that way. The info boxes are created in Unity as 3D Text Boxes which act as 3D objects that can be moved, rotated and stretched within the 3D Unity scene. Each planet requires its own tinkering so that the text is placed naturally. For some of the smaller planets the text looks best when it is directly next to the planet and slightly rotated towards the left and right eye cameras. Many of the larger planets and the sun require more creative placement. This includes placing the text far to the left and right of the planet and rotating it to a series degree so that the user has to turn their head a significant amount to read it. In other cases the text is placed in front of the planets so that it is more easily read. The most interesting example is Saturn. Saturn’s scene has the text closer to the camera than the planet of Saturn is because the rings of Saturn extend quite a ways towards the user in the 3D space. The text then looks like it is floating on the outer rings, or is at least in their vicinity. Attempting to place the text in another way makes it unreadable because it is either obscured by the rings or the user has to turn their head nearly 90 degrees in either direction in order to read it.
@@ -32,24 +33,28 @@ All planets now have a scene that shows some part of their molecular makeup! The
 The molecular scene of the sun shows both hydrogen and helium, with much more of the former. The amount of hydrogen in the sun is so much greater because the sun’s nuclear fusion is driven by the combining of four hydrogen molecules into one helium molecule. This process generates the heat and light we associate with the star in the form of energetic photons that are sent to all corners of the solar system. 
 
 <img src="{{ '/assets/img/blog2/suninside2d.png' | prepend: site.baseurl }}" alt="" style="width:80%">
+
 Mercury, Venus, Earth, and Mars all have cores with very well known and very similar molecular makeups, making these molecular scenes the easiest to implement. The elements in the core remained very similar between them all, the main differences came in the molecules’ speeds which depended simply upon the state of matter in the core. Gaseous molecules move much faster than molecules in liquids, and molecules in a solid are almost completely stationary, and usually in some kind of a lattice formation.
 
 <img src="{{ '/assets/img/blog2/mercuryinside2d.png' | prepend: site.baseurl }}" alt="" style="width:80%">
+
 For Jupiter and Saturn the molecular display ended up showing the layer of conducting liquid hydrogen surrounding the core of the planet rather than the actual core, which is thought to be comprised of solid material of some sort, but they are just too far away and too big for us to know for sure at this point in the exploration of the Solar System.  
 The core of Uranus is composed mainly of chemical compounds like methane, ammonia, and water rather than singular elements like most of the planets, however these were approximated to singular spheres for each compound, which was explained in the text box associated with the molecule scene.
 
 <img src="{{ '/assets/img/blog2/uranusinside2d.png' | prepend: site.baseurl }}" alt="" style="width:80%">
+
 Finally, both Neptune and Pluto have cores made up of what is most likely some kind of generic “rocky material” which was also approximated with a simple sphere. Unfortunately they are just too far away from earth to have sustained the same kind of intense and thorough study as the inner planets, though this level of observation is sure to come soon to all of the outer planets. 
 
 <img src="{{ '/assets/img/blog2/neptuneinside2d.png' | prepend: site.baseurl }}" alt="" style="width:80%">
+
 Each planet has its own individual molecular scene associated with the main scene already in existence for each planet. The molecules are approximated using multiple particle systems within each scene. The particle systems are a game object within unity that emit a certain number of particles/second randomly either from the shell of a shape, or the center of said shape. The lifetimes of these particles can be adjusted, as well as color and size. The speed of each particle can also be manipulated, and the natural forces felt by molecules were attempted to be approximated within the particle systems as well. With all that can be done with the unity object of particle systems, these objects were used to model the complex interactions of molecules using the various ways the particles can be emitted, as well as the above possible manipulations of speed and force pertaining to each particle over its lifetime. When multiple particle systems work together, the chaotic looking result interprets well the concept of a gaseous, liquid or even solid planetary core at a molecular level.
 
 ### Menus
 
 The menu has been revamped! In the early stages of VR Universe the menu was very simplified and consisted of a canvas with buttons indicating where the user can go. It now has models all the planets and the sun that can be selected to go to that celestial body. When you hover over the planet or star, it lights up indicating which planet or star you are about to visit. There’s also a settings button that you can click to go to the settings menu. 
  
-<img src="{{ '/assets/img/blog1/menu2d.png' | prepend: site.baseurl }}" alt="" style="width:80%">
-<img src="{{ '/assets/img/blog2/mainselect2d.png' | prepend: site.baseurl }}" alt="" style="width:80%">
+<center> <img src="{{ '/assets/img/blog1/menu2d.png' | prepend: site.baseurl }}" alt="" style="width:80%"></center>
+<center> <img src="{{ '/assets/img/blog2/mainselect2d.png' | prepend: site.baseurl }}" alt="" style="width:80%"></center>
 
 ### Launching into the Real World
 

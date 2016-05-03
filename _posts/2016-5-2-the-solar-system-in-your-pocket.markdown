@@ -12,7 +12,7 @@ The end of the regular development of VRUniverse is approaching quickly. The app
 
 <div style="text-align: center"><img src="{{ '/assets/img/blog2/main2d.png' | prepend: site.baseurl }}" alt="" style="width:60%"></div>
 <div style="text-align: center; position: relative; padding-bottom: 56.25%; padding-top: 25px; height:0;">
-<iframe src="https://drive.google.com/file/d/0B_SmWf0oK6g5dlFhLWFYWHA1enM/preview" width="640" height="480" style="position: absolute; top:0; left:0; width: 60%; height: auto;"></iframe></div>
+<iframe src="https://drive.google.com/file/d/0B_SmWf0oK6g5dlFhLWFYWHA1enM/preview" width="640" height="400" style="position: absolute; top:0; left:0;"></iframe></div>
 
 ### Main Planet Views
 

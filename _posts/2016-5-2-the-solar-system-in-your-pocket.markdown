@@ -10,7 +10,7 @@ description:  "The end of the regular development of VRUniverse is approaching q
 
 The end of the regular development of VRUniverse is approaching quickly. The app designed for google cardboard is becoming more and more polished and cohesive, with the different parts each team member developed fitting together exceedingly well, with most of the hoped for functionality being implemented. From the final menu to the scaled sun shown from each planet and the text boxes throughout the app, much has changed since the last update, and all for the better. 
 
-<div style="text-align: center"><img src="{{ '/assets/img/blog2/main2d.png' | prepend: site.baseurl }}" alt="" style="width:80%"></div>
+<div style="text-align: center"><img src="{{ '/assets/img/blog2/main2d.png' | prepend: site.baseurl }}" alt="" style="width:50%"></div>
 
 ### Main Planet Views
 
@@ -53,8 +53,8 @@ Each planet has its own individual molecular scene associated with the main scen
 
 The menu has been revamped! In the early stages of VR Universe the menu was very simplified and consisted of a canvas with buttons indicating where the user can go. It now has models all the planets and the sun that can be selected to go to that celestial body. When you hover over the planet or star, it lights up indicating which planet or star you are about to visit. There’s also a settings button that you can click to go to the settings menu. 
  
-<div style="text-align: center"><img src="{{ '/assets/img/blog1/menu2d.png' | prepend: site.baseurl }}" alt="" style="width:80%"></div>
-<div style="text-align: center"><img src="{{ '/assets/img/blog2/mainselect2d.png' | prepend: site.baseurl }}" alt="" style="width:80%"></div>
+<div style="text-align: center"><img src="{{ '/assets/img/blog1/menu2d.png' | prepend: site.baseurl }}" alt="" style="width:50%"></div>
+<div style="text-align: center"><img src="{{ '/assets/img/blog2/mainselect2d.png' | prepend: site.baseurl }}" alt="" style="width:60%"></div>
 
 ### Launching into the Real World
 

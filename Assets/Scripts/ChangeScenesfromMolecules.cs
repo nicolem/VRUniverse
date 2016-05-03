@@ -2,7 +2,7 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class ChangeScenesfromEarthMolecules : MonoBehaviour {
+public class ChangeScenesfromMolecules : MonoBehaviour {
 
     // Use this for initialization
     void Start()

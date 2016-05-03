@@ -13,7 +13,7 @@ public class menuMain : MonoBehaviour
     void Start()
     {
         Cardboard.Create();
-        
+        ApplicationModel.vrbool = false;
         Cardboard.SDK.VRModeEnabled = ApplicationModel.vrbool;
     }
 
@@ -155,6 +155,13 @@ public class menuMain : MonoBehaviour
     {
         Debug.Log("in Main Menu \n");
         SceneManager.LoadScene("StartMenuScene");
+
+    }
+
+    public void settingsMenuPress()
+    {
+        Debug.Log("in settingsMenu \n");
+        SceneManager.LoadScene("SettingsMenuScene");
 
     }
 }

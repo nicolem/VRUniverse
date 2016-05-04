@@ -3,7 +3,7 @@ layout: post
 title:  "The Solar System (and maybe more!) in your pocket!"
 date:   2016-5-2
 authors: "Nicole, David, Emily, and Christina"
-description:  "The end of the regular development of VRUniverse is approaching quickly. The app designed for google cardboard is becoming more and more polished and cohesive, with the different parts each team member developed fitting together exceedingly well, with most of the hoped for functionality being implemented. From the final menu to the scaled sun shown from each planet and the text boxes throughout the app, much has changed since the last update, and all for the better."
+description:  "The end of the regular development of VRUniverse is approaching quickly. The app designed for google cardboard is becoming more and more polished and cohesive, with the different parts each team member developed fitting together exceedingly well, with most of the hoped for functionality being implemented."
 ---
 
 # Still under construction
@@ -54,7 +54,7 @@ Each planet has its own individual molecular scene associated with the main scen
 
 The menu has been revamped! In the early stages of VR Universe the menu was very simplified and consisted of a canvas with buttons indicating where the user can go. It now has models all the planets and the sun that can be selected to go to that celestial body. When you hover over the planet or star, it lights up indicating which planet or star you are about to visit. There’s also a settings button that you can click to go to the settings menu. 
  
-<div style="text-align: center; margin-bottom: 0px;"><img src="{{ '/assets/img/blog1/menu2d.png' | prepend: site.baseurl }}" alt="" style="width:60%"></div>
+<div style="text-align: center; margin-bottom: 0px;"><img src="{{ '/assets/img/blog1/menu2d.png' | prepend: site.baseurl }}" alt="" style="width:60%; display: block"></div>
 <p class="meta">The old menu was very basic</p>
 <div style="text-align: center; margin-bottom: 0px"><img src="{{ '/assets/img/blog2/mainselect2d.png' | prepend: site.baseurl }}" alt="" style="width:60%"></div>
 <p class="meta">The new menu is much more visually appealing</p>

@@ -54,9 +54,9 @@ Each planet has its own individual molecular scene associated with the main scen
 
 The menu has been revamped! In the early stages of VR Universe the menu was very simplified and consisted of a canvas with buttons indicating where the user can go. It now has models all the planets and the sun that can be selected to go to that celestial body. When you hover over the planet or star, it lights up indicating which planet or star you are about to visit. There’s also a settings button that you can click to go to the settings menu. 
  
-<div style="text-align: center"><img src="{{ '/assets/img/blog1/menu2d.png' | prepend: site.baseurl }}" alt="" style="width:60%"></div>
+<div style="text-align: center; margin-bottom: 0px;"><img src="{{ '/assets/img/blog1/menu2d.png' | prepend: site.baseurl }}" alt="" style="width:60%"></div>
 <p class="meta">The old menu was very basic</p>
-<div style="text-align: center"><img src="{{ '/assets/img/blog2/mainselect2d.png' | prepend: site.baseurl }}" alt="" style="width:60%"></div>
+<div style="text-align: center; margin-bottom: 0px"><img src="{{ '/assets/img/blog2/mainselect2d.png' | prepend: site.baseurl }}" alt="" style="width:60%"></div>
 <p class="meta">The new menu is much more visually appealing</p>
 
 A settings menu was recently added to VR Universe. This features radio boxes that allows you to choose whether you want info boxes on and what age group you prefer. And there is also a checkbox so you can decide if you want 3D mode on or off. These options work by changing the values of global variables.  Before each scene is displayed it checks the values of these variables so it knows what to render for the user.

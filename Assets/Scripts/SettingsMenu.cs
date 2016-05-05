@@ -5,25 +5,41 @@ using System.Collections;
 using System;
 
 public class SettingsMenu : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-        Cardboard.Create();
-        Cardboard.SDK.VRModeEnabled = ApplicationModel.vrbool;
-    }
     [SerializeField]
     Toggle vrmode;
+    [SerializeField]
+    Toggle infoboxes;
+
+    [SerializeField]
+    Toggle noboxes;
+    [SerializeField]
+    Toggle kidsinfo;
+    [SerializeField]
+    Toggle adultinfo;
+    [SerializeField]
+    Toggle satireinfo;
+
+    // Use this for initialization
+    void Start () {
+        Cardboard.Create();
+        Cardboard.SDK.VRModeEnabled = ApplicationModel.vrbool;
+        vrmode.isOn = ApplicationModel.vrbool;
+        noboxes.isOn = !ApplicationModel.infobool;
+        kidsinfo.isOn = ApplicationModel.infobool;
+        infoboxes.isOn = ApplicationModel.infobool;
+    }
 
     // Update is called once per frame
     void Update () {
- 
+        Debug.Log("vr mode: " + vrmode.isOn);
+        ApplicationModel.vrbool = vrmode.isOn;
+        ApplicationModel.infobool = !noboxes.isOn;
 	}
 
     public void returnToMenuPress()
     {
         Debug.Log("in Main Menu \n");
         SceneManager.LoadScene("StartMenuScene");
-
     }
 
     /*

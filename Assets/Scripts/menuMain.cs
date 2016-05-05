@@ -13,7 +13,6 @@ public class menuMain : MonoBehaviour
     void Start()
     {
         Cardboard.Create();
-        ApplicationModel.vrbool = false;
         Cardboard.SDK.VRModeEnabled = ApplicationModel.vrbool;
     }
 
